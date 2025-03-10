@@ -42,3 +42,38 @@ git push origin my_branch
 ```
 This specific command will make a remote branch called “my_branch” on the Github server. This will be separate from the main branch in which everyone starts from. 
 To add any of your changes to the main branch, you usually do this via the Github website when you make a “pull request”
+
+
+---
+
+# Additional commands
+Aside from the above commands which are usually used when making small incremental changes. There are commands that are used when trying to manage and merge different branches. This is common when you’re working in large teams with multiple branches.
+These commands will suggest ways in which you can add those changes and merge branches. 
+
+## git fetch
+Git fetch is the command use to retrieve all the branches from a remote git repo.
+```
+Git fetch
+```
+This is useful for identifying if the branch you may be working off has changed. (e.g main) Those changes will need to be incorporated so your branch is up to date.
+
+## git pull
+Git pull will pull all the commits that were made on the remote branch and add them to your local. The local will now be a “local merge” which means it will slightly differ from the main and have your changes. 
+Note: some conflicts may appear if any of the commits you pulled from the branch were edited by your local branch.
+```
+Git pull
+```
+You could also run pull with the –rebase parameter and in stead of merge directly. It will add your changes on top of the remote branches changes so its as if you are working of the latest code.
+```
+Git pull --rebase
+```
+ 
+## Merging
+Merging is the process of combining two branches manually so you can pick and choose which changes from each you want to combine. 
+```
+# switch receiving branch, in this case main
+Git checkout main 
+# merge from sending branch
+Git merge my_branch
+```
+
